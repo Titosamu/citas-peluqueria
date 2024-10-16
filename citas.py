@@ -1,13 +1,18 @@
 import streamlit as st
 
-def load_styles():
-    with open("styles.html", "r") as f:
-        styles = f.read()
-    return styles
-
 def main():
-    # Cargar estilos desde el archivo HTML
-    st.markdown(load_styles(), unsafe_allow_html=True)
+    # Fondo de pantalla JPG
+    page_bg_img = '''
+    <style>
+    body {
+        background-image: url("images/fondo.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
 
     st.image("images/logo.jpg", width=800)
     
@@ -28,3 +33,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
