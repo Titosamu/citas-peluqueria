@@ -1,6 +1,17 @@
 import streamlit as st
+import home
+import citas
 
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
+# Inicializar la variable de estado para la página
+if 'page' not in st.session_state:
+    st.session_state['page'] = 'home'
+
+# Función para cargar la página correcta
+def load_page(page):
+    if page == 'home':
+        home.main()
+    elif page == 'citas':
+        citas.main()
+
+# Cargar la página actual
+load_page(st.session_state['page'])
